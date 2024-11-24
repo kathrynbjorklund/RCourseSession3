@@ -1,0 +1,14 @@
+---
+title: "RCourseSession3"
+author: "KB"
+date: "2024-11-24"
+output: html_document
+bibliography: INFLUX.bib
+---
+
+# Creating a Heading
+
+```{r cars}
+summary(cars)
+```
+
