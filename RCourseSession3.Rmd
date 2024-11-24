@@ -4,11 +4,34 @@ author: "KB"
 date: "2024-11-24"
 output: html_document
 bibliography: INFLUX.bib
+link-citations: yes
 ---
 
 # Creating a Heading
 
-```{r cars}
-summary(cars)
-```
+## Gapminder plot from last session
 
+```{r}
+library(gapminder)
+suppressPackageStartupMessages(library(tidyverse))
+
+solution <- gapminder %>% 
+  group_by(country) %>%  
+  summarise(
+    ale = mean(lifeExp, na.rm = TRUE),
+    pop_min = min(pop, na.rm = TRUE),
+    pop_max = max(pop, na.rm = TRUE),
+    med_gdp = median(gdpPercap, na.rm = TRUE)
+  )
+
+solution %>%  
+  ggplot(aes(x = ale, y = med_gdp)) +
+  geom_point(color = "orange") +
+  geom_smooth() +
+  labs(x = "Average life expectancy", y = "Median GDP")
+```  
+  
+# Citations
+ Piece of text to practice a reference [@arif_causal_2022].
+  
+# Bibliography
